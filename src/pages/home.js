@@ -2,7 +2,6 @@ import MainLayout from "../components/layout/mainLayout";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../components/logo/logo";
-import ArrowIcon from "../components/iconsComponent/arrowIcon";
 import Button from "../components/button/button";
 
 const DivInstance = styled.div``;
