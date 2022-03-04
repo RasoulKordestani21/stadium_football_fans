@@ -10,7 +10,6 @@ const ButtonComp = styled.button`
 `;
 
 const Button = props => {
-  //   console.log(children);
   return <ButtonComp onClick={props.onClick}>{props.children}</ButtonComp>;
 };
 
