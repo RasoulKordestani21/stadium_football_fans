@@ -8,6 +8,7 @@ export const Template = () => {
   return (
     <Router>
       <Routes>
+        {console.log(routes)}
         {routes.map(route => (
           <>
             <Route

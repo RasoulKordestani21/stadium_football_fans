@@ -1,12 +1,11 @@
-// @flow
-import * as React from "react";
 import MainLayout from "../components/layout/mainLayout";
 import { useNavigate } from "react-router-dom";
-import Logo from "../components/logo/logo";
+// import Button "../components/button/button.js"
+// import Button from "../components/button/button";
 import styled from "styled-components";
-
 import Button from "../components/button/button";
 import Input from "../components/Input/input";
+import Logo from "../components/logo/logo";
 
 const FormComp = styled.form`
   background-image: linear-gradient(180deg, aqua, #c886c8);
@@ -19,25 +18,25 @@ const FormComp = styled.form`
   margin:auto
 `;
 
-const Login = () => {
+const Register = () => {
   const navigate = useNavigate();
-  console.log(useNavigate());
   return (
     <MainLayout backPath={"/"}>
-      <Logo>ورود</Logo>
+      <Logo>ثبت نام</Logo>
       <FormComp>
-        <Input labelText={"نام و نام خانوادگی"} />
+        <Input labelText={"نام کاربری"} />
+        <Input labelText={"شماره تلفن یا ایمیل"} />
         <Input labelText={"کلمه عبور"} />
         <Button
           onClick={() => {
-            navigate("/displayPageNumber");
+            navigate("/login");
           }}
         >
-          ورود
+          ثبت نام
         </Button>
       </FormComp>
     </MainLayout>
   );
 };
 
-export default Login;
+export default Register;
