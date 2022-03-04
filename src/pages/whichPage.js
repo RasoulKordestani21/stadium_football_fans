@@ -1,5 +1,4 @@
 import MainLayout from "../components/layout/mainLayout";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import Logo from "../components/logo/logo";
@@ -16,7 +15,6 @@ const WhichPageWrapper = styled.div`
 `;
 
 const WhichPage = () => {
-  const navigate = useNavigate();
   return (
     <MainLayout backPath={"/login"}>
       <Logo>شماره صفحه</Logo>
