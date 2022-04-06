@@ -4,6 +4,7 @@ import { Route, Routes, BrowserRouter as Router, HashRouter } from "react-router
 
 import routes from "../../router/router";
 
+
 export const Template = () => {
   return (
     <HashRouter>
