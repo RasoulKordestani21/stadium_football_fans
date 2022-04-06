@@ -45,5 +45,15 @@
   "devDependencies": {
     "gh-pages": "^3.2.3",
     "sass": "^1.49.7"
+  },
+  "babel": {
+    "presets": [
+      "@babel/react",
+      "@babel/env"
+    ],
+    "plugins": [
+      "@babel/proposal-class-properties",
+      "@babel/plugin-transform-runtime"
+    ]
   }
 }
