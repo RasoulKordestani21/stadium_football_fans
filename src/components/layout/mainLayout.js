@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
+import getBaseUrl from "../../config/getBase";
+
 const DivInstance = styled.div``;
 
 const MainLayoutComp = styled(DivInstance)`
@@ -28,7 +30,7 @@ const MainLayout = ({ children, backPath, isHome }) => {
       <HeaderComp isHome={isHome}>
         <ArrowIcon
           onClick={() => {
-            navigate(backPath);
+            navigate(getBaseUrl()+ backPath);
           }}
           color={"#424242"}
           style={{ transform: "rotate(180deg)" }}

@@ -7,6 +7,8 @@ import Button from "../components/button/button";
 import Input from "../components/Input/input";
 import Logo from "../components/logo/logo";
 
+import getBaseUrl from "../config/getBase";
+
 const FormComp = styled.form`
   background-image: linear-gradient(180deg, aqua, #c886c8);
   display: flex;
@@ -29,7 +31,7 @@ const Register = () => {
         <Input labelText={"کلمه عبور"} />
         <Button
           onClick={() => {
-            navigate("/login");
+            navigate(`${getBaseUrl()}/login`);
           }}
         >
           ثبت نام

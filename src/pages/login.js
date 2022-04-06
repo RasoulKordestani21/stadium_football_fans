@@ -7,6 +7,7 @@ import styled from "styled-components";
 
 import Button from "../components/button/button";
 import Input from "../components/Input/input";
+import getBaseUrl from "../config/getBase";
 
 const FormComp = styled.form`
   background-image: linear-gradient(180deg, aqua, #c886c8);
@@ -21,7 +22,6 @@ const FormComp = styled.form`
 
 const Login = () => {
   const navigate = useNavigate();
-  console.log(useNavigate());
   return (
     <MainLayout backPath={"/"}>
       <Logo>ورود</Logo>
@@ -30,7 +30,7 @@ const Login = () => {
         <Input labelText={"کلمه عبور"} />
         <Button
           onClick={() => {
-            navigate("/displayPageNumber");
+            navigate(`${getBaseUrl()}/displayPageNumber`);
           }}
         >
           ورود

@@ -27,14 +27,14 @@ const Home = () => {
         <Logo>صفحه اصلی</Logo>
         <Button
           onClick={() => {
-            navigate("/login");
+            navigate(`${getBaseUrl()}/login`);
           }}
         >
           ورود
         </Button>
         <Button
           onClick={() => {
-            navigate("/register");
+            navigate(`${getBaseUrl()}/register`);
           }}
         >
           ثبت نام
