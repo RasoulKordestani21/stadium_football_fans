@@ -1,13 +1,12 @@
 // @flow
 import * as React from "react";
-import { Route, Routes, BrowserRouter as Router, HashRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 
 import routes from "../../router/router";
 
-
 export const Template = () => {
   return (
-    <HashRouter>
+    <Router>
       <Routes>
         {console.log(routes)}
         {routes.map(route => (
@@ -21,7 +20,7 @@ export const Template = () => {
           </>
         ))}
       </Routes>
-    </HashRouter>
+    </Router>
   );
 };
 
