@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../components/logo/logo";
 import Button from "../components/button/button";
+import getBaseUrl from "../config/getBase";
 
 const DivInstance = styled.div``;
 
@@ -17,7 +18,7 @@ const HomeComp = styled(DivInstance)`
 //   height: 100px;
 //   background-color: pink;
 // `;
-
+console.log(getBaseUrl())
 const Home = () => {
   const navigate = useNavigate();
   return (
