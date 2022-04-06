@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/stadium_football_fans/static/css/main.073c9b0a.css",
-    "main.js": "/stadium_football_fans/static/js/main.5a2af1f3.js",
+    "main.js": "/stadium_football_fans/static/js/main.c7c50e56.js",
     "static/js/787.89c3e7d2.chunk.js": "/stadium_football_fans/static/js/787.89c3e7d2.chunk.js",
     "index.html": "/stadium_football_fans/index.html",
     "main.073c9b0a.css.map": "/stadium_football_fans/static/css/main.073c9b0a.css.map",
-    "main.5a2af1f3.js.map": "/stadium_football_fans/static/js/main.5a2af1f3.js.map",
+    "main.c7c50e56.js.map": "/stadium_football_fans/static/js/main.c7c50e56.js.map",
     "787.89c3e7d2.chunk.js.map": "/stadium_football_fans/static/js/787.89c3e7d2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.5a2af1f3.js"
+    "static/js/main.c7c50e56.js"
   ]
 }
