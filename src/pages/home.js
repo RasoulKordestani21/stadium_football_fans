@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../components/logo/logo";
 import Button from "../components/button/button";
-import getBaseUrl from "../config/getBase";
 
 const DivInstance = styled.div``;
 
@@ -18,7 +17,7 @@ const HomeComp = styled(DivInstance)`
 //   height: 100px;
 //   background-color: pink;
 // `;
-console.log(getBaseUrl())
+
 const Home = () => {
   const navigate = useNavigate();
   return (
@@ -27,14 +26,14 @@ const Home = () => {
         <Logo>صفحه اصلی</Logo>
         <Button
           onClick={() => {
-            navigate(`${getBaseUrl()}/login`);
+            navigate("/login");
           }}
         >
           ورود
         </Button>
         <Button
           onClick={() => {
-            navigate(`${getBaseUrl()}/register`);
+            navigate("/register");
           }}
         >
           ثبت نام
