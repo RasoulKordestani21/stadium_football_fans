@@ -56,5 +56,10 @@
       "@babel/proposal-class-properties",
       "@babel/plugin-transform-runtime"
     ]
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(<package-name>|<second-package-name>)/)"
+    ]
   }
 }
