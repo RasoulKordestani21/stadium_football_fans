@@ -1,5 +1,5 @@
 
-// import "./App.css";
+import "./App.css";
 
 import Template from "./components/template/template";
 function App() {
