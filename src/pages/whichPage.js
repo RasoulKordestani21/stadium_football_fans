@@ -1,5 +1,6 @@
 import MainLayout from "../components/layout/mainLayout";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 
 import Logo from "../components/logo/logo";
 
@@ -15,8 +16,9 @@ const WhichPageWrapper = styled.div`
 `;
 
 const WhichPage = () => {
+  console.log(useLocation().state.maskId);
   return (
-    <MainLayout backPath={"/login"}>
+    <MainLayout backPath={"/scanQRCode"}>
       <Logo>شماره صفحه</Logo>
       <WhichPageWrapper>صفحه مورد نظر شما : ۲</WhichPageWrapper>
     </MainLayout>

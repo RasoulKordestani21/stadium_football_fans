@@ -43,17 +43,24 @@ const Home = () => {
         <Logo>صفحه اصلی</Logo>
         <Button
           onClick={() => {
-            navigate("/login");
+            // navigate("/login");
           }}
         >
           ورود
         </Button>
         <Button
           onClick={() => {
-            navigate("/register");
+            // navigate("/register");
           }}
         >
           ثبت نام
+        </Button>
+        <Button
+          onClick={() => {
+            navigate("/scanQRCode");
+          }}
+        >
+           اسکن بارکد
         </Button>
       </HomeComp>
     </MainLayout>

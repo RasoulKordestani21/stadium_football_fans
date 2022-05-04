@@ -2,6 +2,7 @@ import Login from "../pages/login";
 import WhichPage from "../pages/whichPage";
 import Register from "../pages/register";
 import Home from "../pages/home";
+import ScanQRCode from "../pages/scanQRCode";
 import getBaseUrl from "../config/getBase";
 
 const routes = [
@@ -26,6 +27,12 @@ const routes = [
   {
     path: `${getBaseUrl()}/register`,
     component: <Register />,
+    isPrivate: true,
+    key: 4
+  },
+  {
+    path: `${getBaseUrl()}/scanQRCode`,
+    component: <ScanQRCode />,
     isPrivate: true,
     key: 4
   }

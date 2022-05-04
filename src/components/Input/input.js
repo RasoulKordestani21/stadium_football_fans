@@ -19,7 +19,7 @@ const Input = props => {
   return (
     <InputWrapper>
       <Label>{props.labelText}</Label>
-      <InputComp type="text" />
+      <InputComp onChange={props.onChange} type={props.type || "text"} />
     </InputWrapper>
   );
 };
