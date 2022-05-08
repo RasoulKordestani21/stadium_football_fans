@@ -1,6 +1,9 @@
 import MainLayout from "../components/layout/mainLayout";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
+import { useQuery } from "react-query";
+
+import axios from "axios";
 
 import Logo from "../components/logo/logo";
 
@@ -16,7 +19,14 @@ const WhichPageWrapper = styled.div`
 `;
 
 const WhichPage = () => {
-  console.log(useLocation().state.maskId);
+  const chairNumber = +useLocation().state.chairNumber;
+
+  //request
+  const { data: packet } = useQuery("packetdd", () =>
+    axios.get("http://localhost:3000/", { params: { chairNum: chairNumber } })
+  );
+
+  console.log(+useLocation().state.chairNumber);
   return (
     <MainLayout backPath={"/scanQRCode"}>
       <Logo>شماره صفحه</Logo>

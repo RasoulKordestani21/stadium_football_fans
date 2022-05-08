@@ -8,6 +8,7 @@ import styled from "styled-components";
 
 import Button from "../components/button/button";
 import Input from "../components/Input/input";
+import axios from "axios";
 
 const FormComp = styled.form`
   background-image: linear-gradient(180deg, aqua, #c886c8);
@@ -24,7 +25,7 @@ const ScanQRCode = () => {
   const navigate = useNavigate();
   //   console.log(useNavigate());
 
-  const [maskId, setMaskId] = useState();
+  const [chairNumber, setChairNumber] = useState();
   return (
     <MainLayout backPath={"/"}>
       <Logo>اسکن صفحه مورد نظر</Logo>
@@ -32,13 +33,13 @@ const ScanQRCode = () => {
         <Input
           labelText={"شماره صفحه را وارد کنید"}
           onChange={e => {
-            setMaskId(e.target.value);
+            setChairNumber(e.target.value);
           }}
           type="number"
         />
         <Button
           onClick={() => {
-            navigate("/displayPageNumber", { state: { maskId } });
+            navigate("/displayPageNumber", { state: { chairNumber } });
           }}
         >
           یافتن شماره ماسک
