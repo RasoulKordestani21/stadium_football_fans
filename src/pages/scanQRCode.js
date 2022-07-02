@@ -97,12 +97,14 @@ const ScanQRCode = () => {
           {switchCamera && (
             <QrReader
               ref={qrRef}
+              constraints={{ facingMode: "environment" }}
+              facingMode="user"
               scanDelay={2000}
               style={{ width: "100%" }}
               onResult={(result, error) => {
                 if (!!result) {
                   setScanResultFile(result?.text);
-                  console.log("this is result",result)
+                  console.log("this is result", result);
                 }
 
                 if (!!error) {
