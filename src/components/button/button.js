@@ -10,7 +10,11 @@ const ButtonComp = styled.button`
 `;
 
 const Button = props => {
-  return <ButtonComp onClick={props.onClick}>{props.children}</ButtonComp>;
+  return (
+    <ButtonComp type="button" onClick={props.onClick}>
+      {props.children}
+    </ButtonComp>
+  );
 };
 
 export default Button;
