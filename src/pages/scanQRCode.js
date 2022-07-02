@@ -10,6 +10,8 @@ import Button from "../components/button/button";
 import Input from "../components/Input/input";
 import axios from "axios";
 
+import { toDataURL, setImageURL } from "qrcode";
+
 const FormComp = styled.form`
   background-image: linear-gradient(180deg, aqua, #c886c8);
   display: flex;
@@ -24,6 +26,15 @@ const FormComp = styled.form`
 const ScanQRCode = () => {
   const navigate = useNavigate();
   //   console.log(useNavigate());
+  const [generateTxt, setGenerateTxt] = useState("");
+  const [qrLink, setQrLink] = useState();
+  // const [qrImage, setQrImage] = useState();
+  let response;
+  const getQrCode = async () => {
+    response = await toDataURL(generateTxt);
+    console.log(response);
+    setQrLink(response);
+  };
 
   const [chairNumber, setChairNumber] = useState();
   return (
@@ -44,6 +55,19 @@ const ScanQRCode = () => {
         >
           یافتن شماره ماسک
         </Button>
+
+        <Input
+          labelText={"متن مورد نظر را وارد کنید."}
+          onChange={e => {
+            setGenerateTxt(e.target.value);
+          }}
+          type="text"
+        />
+        <Button onClick={getQrCode}> دریافت کد </Button>
+        <p style={{ backgroundColor: "white" }}>{qrLink}</p>
+        <a href={qrLink} download>
+          <img src={qrLink} alt={qrLink} />
+        </a>
       </FormComp>
     </MainLayout>
   );
