@@ -3,31 +3,24 @@ import * as React from "react";
 import ArrowIcon from "../iconsComponent/arrowIcon";
 // import "./mainLayout.scss";
 import { useNavigate } from "react-router-dom";
-
+import LayoutBackground from "../layoutBg/layoutBackground";
 import styled from "styled-components";
+
+
 
 import getBaseUrl from "../../config/getBase";
 
 const DivInstance = styled.div``;
 
 const MainLayoutComp = styled(DivInstance)`
-  height: 100vh;
-  object-fit: contain;
-  margin: 0;
-  direction: rtl;
-  background-image: url(https://www.stirworld.com/images/see/1370_XianStadium_1.jpg?0);
-  background-size: cover;
+  background-image: url(../../assets/svg/layoutBackground.svg);
 `;
 
-const HeaderComp = styled.header`
-  background-color: aqua;
-  display: ${props => (props?.isHome ? "none" : "flex")};
-`;
 const MainLayout = ({ children, backPath, isHome }) => {
   const navigate = useNavigate();
   return (
     <MainLayoutComp style={{}}>
-      <HeaderComp isHome={isHome}>
+      {/* <HeaderComp isHome={isHome}>
         <ArrowIcon
           onClick={() => {
             navigate(getBaseUrl()+ backPath);
@@ -35,7 +28,9 @@ const MainLayout = ({ children, backPath, isHome }) => {
           color={"#424242"}
           style={{ transform: "rotate(180deg)" }}
         />
-      </HeaderComp>
+      </HeaderComp> */}
+     
+      <LayoutBackground />
       {children}
     </MainLayoutComp>
   );
