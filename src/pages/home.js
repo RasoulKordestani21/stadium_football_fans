@@ -7,6 +7,8 @@ import styled from "styled-components";
 import Logo from "../components/logo/logo";
 import Button from "../components/button/button";
 
+import { ReactComponent as FootballFanImg } from "../components/welcome/footballFan.svg";
+
 import axios from "axios";
 
 const DivInstance = styled.div``;
@@ -38,7 +40,16 @@ const Home = () => {
 
   return (
     <MainLayout isHome={true}>
-      <HomeComp>
+      <div className="flex justify-center mt-[30px]">
+        <FootballFanImg />
+      </div>
+      <section>
+        <p className="text-[16px] font-bold text-bold">هم نما</p>
+        <p className="mt-2">تجربه ای متفاوت از هواداری</p>
+      </section>
+      <Button text="ورود به حساب کاربری" />
+
+      {/* <HomeComp>
         {console.log(packet)}
         <Logo>صفحه اصلی</Logo>
         <Button
@@ -62,7 +73,7 @@ const Home = () => {
         >
            اسکن بارکد
         </Button>
-      </HomeComp>
+      </HomeComp> */}
     </MainLayout>
   );
 };
