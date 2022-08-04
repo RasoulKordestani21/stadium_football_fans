@@ -33,7 +33,7 @@ const port = isLocal ? window.location.port : "";
 
 const Home = () => {
   const navigate = useNavigate();
-  console.log(isLocal);
+
   const { data: packet } = useQuery("packetdd", () =>
     axios.get("http://localhost:3000/courses")
   );

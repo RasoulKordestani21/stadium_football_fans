@@ -24,7 +24,7 @@ const Login = () => {
   const navigate = useNavigate();
   console.log(useNavigate());
   return (
-    <MainLayout backPath={"/"}>
+    <MainLayout backPath={"/"} isLogin={"true"}>
       <Logo>ورود به هم نما</Logo>
       <form className="flex flex-col items-center m-auto">
         <Input labelText={"نام و نام خانوادگی"} />
