@@ -28,7 +28,7 @@ const Input = props => {
       <label className="mb-2">{props.labelText}</label>
       <div className="relative">
         <input
-          className="rounded-[8px] border-[1px] border-slate-400 text-base p-3 min-w-[250px] relative"
+          className="rounded-[8px] border-[1px] border-slate-300 text-base p-3 min-w-[250px] relative hover:border-slate-500 focus:outline-slate-500"
           type={props.isPassword && !showPassword ? "password" : "text"}
           onChange={props.onChange}
         />
@@ -57,7 +57,7 @@ const Input = props => {
           </>
         )}
       </div>
-      {props.isPassword ? (
+      {props.isSignIn ? (
         <Link
           className="mt-2 text-end w-full text-xs"
           text="رمز عبور خود را فراموش کرده‌ام"

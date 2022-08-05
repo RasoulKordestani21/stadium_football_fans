@@ -1,4 +1,5 @@
-import Login from "../pages/login";
+import SignIn from "../pages/login/signin";
+import SignUp from "../pages/login/signup";
 import WhichPage from "../pages/whichPage";
 import Register from "../pages/register";
 import Home from "../pages/home";
@@ -13,28 +14,34 @@ const routes = [
     key: 1
   },
   {
-    path: `${getBaseUrl()}/login`,
-    component: <Login />,
+    path: `${getBaseUrl()}/signin`,
+    component: <SignIn />,
     isPrivate: true,
-    key: 2
+    key: 3
+  },
+  {
+    path: `${getBaseUrl()}/signup`,
+    component: <SignUp />,
+    isPrivate: true,
+    key: 4
   },
   {
     path: `${getBaseUrl()}/displayPageNumber`,
     component: <WhichPage />,
     isPrivate: true,
-    key: 3
+    key: 5
   },
   {
     path: `${getBaseUrl()}/register`,
     component: <Register />,
     isPrivate: true,
-    key: 4
+    key: 6
   },
   {
     path: `${getBaseUrl()}/scanQRCode`,
     component: <ScanQRCode />,
     isPrivate: true,
-    key: 4
+    key: 7
   }
 ];
 

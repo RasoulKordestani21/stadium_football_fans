@@ -47,7 +47,12 @@ const Home = () => {
         <p className="text-[16px] font-bold text-bold">هم نما</p>
         <p className="mt-2">تجربه ای متفاوت از هواداری</p>
       </section>
-      <Button text="ورود به حساب کاربری" />
+      <Button
+        text="ورود به حساب کاربری"
+        onClick={() => {
+          navigate("/signin");
+        }}
+      />
 
       {/* <HomeComp>
         {console.log(packet)}
