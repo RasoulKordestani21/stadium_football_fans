@@ -1,0 +1,25 @@
+
+.choose-team-container{
+    min-height: calc(100vh - 2rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.teams{
+    position:relative
+}
+.check-icon{
+    content: "";
+    /* background-color: brown; */
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top:0;
+    right: 0;
+}
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}

@@ -6,6 +6,7 @@ import Register from "../pages/register";
 import Home from "../pages/home";
 import ScanQRCode from "../pages/scanQRCode";
 import getBaseUrl from "../config/getBase";
+import ChooseTeam from "../pages/main/chooseTeam";
 
 const routes = [
   {
@@ -49,6 +50,12 @@ const routes = [
     component: <ScanQRCode />,
     isPrivate: true,
     key: 8
+  },
+  {
+    path: `${getBaseUrl()}/ChooseTeam`,
+    component: <ChooseTeam />,
+    isPrivate: true,
+    key: 9
   }
 ];
 
