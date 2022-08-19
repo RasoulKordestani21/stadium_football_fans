@@ -4,20 +4,15 @@ import ArrowIcon from "../iconsComponent/arrowIcon";
 // import "./mainLayout.scss";
 import { useNavigate } from "react-router-dom";
 import LayoutBackground from "../layoutBg/layoutBackground";
-import styled from "styled-components";
+// import styled from "styled-components";
+import clsx from "clsx";
 
 import getBaseUrl from "../../config/getBase";
 
-const DivInstance = styled.div``;
-
-const MainLayoutComp = styled(DivInstance)`
-  background-image: url(../../assets/svg/layoutBackground.svg);
-`;
-
-const MainLayout = ({ children, backPath, isHome, isLogin }) => {
+const MainLayout = ({ children, backPath, isHome, isLogin, className }) => {
   const navigate = useNavigate();
   return (
-    <MainLayoutComp>
+    <div className={clsx(className)}>
       {/* <HeaderComp isHome={isHome}>
         <ArrowIcon
           onClick={() => {
@@ -30,7 +25,7 @@ const MainLayout = ({ children, backPath, isHome, isLogin }) => {
 
       <LayoutBackground isLogin={isLogin} />
       {children}
-    </MainLayoutComp>
+    </div>
   );
 };
 

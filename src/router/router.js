@@ -1,5 +1,6 @@
 import SignIn from "../pages/login/signin";
 import SignUp from "../pages/login/signup";
+import Otp from "../pages/otp";
 import WhichPage from "../pages/whichPage";
 import Register from "../pages/register";
 import Home from "../pages/home";
@@ -26,22 +27,28 @@ const routes = [
     key: 4
   },
   {
+    path: `${getBaseUrl()}/otp`,
+    component: <Otp />,
+    isPrivate: true,
+    key: 5
+  },
+  {
     path: `${getBaseUrl()}/displayPageNumber`,
     component: <WhichPage />,
     isPrivate: true,
-    key: 5
+    key: 6
   },
   {
     path: `${getBaseUrl()}/register`,
     component: <Register />,
     isPrivate: true,
-    key: 6
+    key: 7
   },
   {
     path: `${getBaseUrl()}/scanQRCode`,
     component: <ScanQRCode />,
     isPrivate: true,
-    key: 7
+    key: 8
   }
 ];
 

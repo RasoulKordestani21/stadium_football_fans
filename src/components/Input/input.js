@@ -5,6 +5,7 @@ import clsx from "clsx";
 import EyeIcon from "../iconsComponent/eye-icon/eyeIcon";
 import HideEyeIcon from "../iconsComponent/hide-eye-icon/hideEyeIcon";
 import Link from "../link/link";
+import "./input.module.css";
 
 // const InputWrapper = styled.div`
 //   display: flex;
@@ -23,12 +24,23 @@ import Link from "../link/link";
 const rtlClass = { direction: "rtl" };
 const Input = props => {
   const [showPassword, setShowPassword] = useState(false);
-  return (
+  return props.smsbox ? (
+    <input
+      className={clsx(`
+      small-box rounded-[8px] border-[1px] border-slate-300
+       text-base w-14 h-16 flex justify-center relative
+        hover:border-slate-500 p-5`)}
+      type={"tell"}
+      maxLength="1"
+      onChange={e => console.log(e.target.value)}
+    />
+  ) : (
     <div className="flex flex-col items-start mt-5" style={rtlClass}>
       <label className="mb-2">{props.labelText}</label>
       <div className="relative">
         <input
           className="rounded-[8px] border-[1px] border-slate-300 text-base p-3 min-w-[250px] relative hover:border-slate-500 focus:outline-slate-500"
+          placeholder={props.placeholder}
           type={props.isPassword && !showPassword ? "password" : "text"}
           onChange={props.onChange}
         />
