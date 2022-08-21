@@ -7,6 +7,7 @@ import Home from "../pages/home";
 import ScanQRCode from "../pages/scanQRCode";
 import getBaseUrl from "../config/getBase";
 import ChooseTeam from "../pages/main/chooseTeam";
+import MainPage from "../pages/main/mainPage";
 
 const routes = [
   {
@@ -56,6 +57,12 @@ const routes = [
     component: <ChooseTeam />,
     isPrivate: true,
     key: 9
+  },
+  {
+    path: `${getBaseUrl()}/mainPage`,
+    component: <MainPage />,
+    isPrivate: true,
+    key: 10
   }
 ];
 
