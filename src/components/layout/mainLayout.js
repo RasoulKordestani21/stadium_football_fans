@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import ArrowIcon from "../iconsComponent/arrowIcon";
-// import "./mainLayout.scss";
+import "./mainLayout.scss";
 import { useNavigate } from "react-router-dom";
 import LayoutBackground from "../layoutBg/layoutBackground";
 // import styled from "styled-components";
@@ -9,10 +9,17 @@ import clsx from "clsx";
 
 import getBaseUrl from "../../config/getBase";
 
-const MainLayout = ({ children, backPath, isHome, isLogin, className }) => {
+const MainLayout = ({
+  children,
+  backPath,
+  isHome,
+  isLogin,
+  className,
+  mainPage
+}) => {
   const navigate = useNavigate();
   return (
-    <div className={clsx(className)}>
+    <div className={clsx(className, mainPage && "main-layout")}>
       {/* <HeaderComp isHome={isHome}>
         <ArrowIcon
           onClick={() => {
@@ -23,7 +30,7 @@ const MainLayout = ({ children, backPath, isHome, isLogin, className }) => {
         />
       </HeaderComp> */}
 
-      <LayoutBackground isLogin={isLogin} />
+      {/* <LayoutBackground isLogin={isLogin} /> */}
       {children}
     </div>
   );
