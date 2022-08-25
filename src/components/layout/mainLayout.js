@@ -30,7 +30,7 @@ const MainLayout = ({
         />
       </HeaderComp> */}
 
-      {/* <LayoutBackground isLogin={isLogin} /> */}
+      {!mainPage && <LayoutBackground isLogin={isLogin} />}
       {children}
     </div>
   );

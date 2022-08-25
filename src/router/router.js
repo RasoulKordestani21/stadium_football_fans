@@ -8,6 +8,7 @@ import ScanQRCode from "../pages/scanQRCode";
 import getBaseUrl from "../config/getBase";
 import ChooseTeam from "../pages/main/chooseTeam";
 import MainPage from "../pages/main/mainPage";
+import ScanQrCode from "../pages/main/scanQRcode";
 
 const routes = [
   {
@@ -63,6 +64,12 @@ const routes = [
     component: <MainPage />,
     isPrivate: true,
     key: 10
+  },
+  {
+    path: `${getBaseUrl()}/qrCOde`,
+    component: <ScanQrCode />,
+    isPrivate: true,
+    key: 11
   }
 ];
 
