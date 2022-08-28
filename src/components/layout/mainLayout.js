@@ -20,12 +20,7 @@ const MainLayout = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <div
-      className={clsx(
-        className,
-        mainPage && "main-layout",
-      )}
-    >
+    <div className={clsx(className, mainPage && "main-layout")}>
       {/* <HeaderComp isHome={isHome}>
         <ArrowIcon
           onClick={() => {
@@ -36,9 +31,12 @@ const MainLayout = ({
         />
       </HeaderComp> */}
       {console.log(colorsPage)}
-      {!mainPage && (
-        <LayoutBackground isLogin={isLogin} className={clsx("card-layout")} />
-      )}
+
+      <LayoutBackground
+        isLogin={isLogin}
+        className={clsx(!mainPage && !isLogin && "card-layout")}
+      />
+
       {children}
     </div>
   );

@@ -8,6 +8,7 @@ import Logo from "../../components/logo/logo";
 import Button from "../../components/button/button";
 import Input from "../../components/Input/input";
 import Link from "../../components/link/link";
+import { instance } from "../../config/api";
 
 // const FormComp = styled.form`
 //   background-image: linear-gradient(180deg, aqua, #c886c8);
@@ -21,15 +22,32 @@ import Link from "../../components/link/link";
 // `;
 
 const SignIn = () => {
+  const handleSubmit = () => {
+    instance.get("api/signin", { params: { ...data } });
+  };
+  const [data, setData] = React.useState({});
   const navigate = useNavigate();
   console.log(useNavigate());
   return (
     <MainLayout backPath={"/"} isLogin={"true"}>
       <Logo>ورود به هم نما</Logo>
       <form className="flex flex-col items-center m-auto">
-        <Input placeholder="شماره موبایل" labelText={"نام و نام خانوادگی"} />
-        <Input labelText={"کلمه عبور"} isPassword={true} isSignIn={true} />
-        <Button text="ورود به حساب کاربری" />
+        <Input
+          onChange={e => setData({ ...data, username: e.target.value })}
+          placeholder="شماره موبایل"
+          labelText={"نام و نام خانوادگی"}
+        />
+        <Input
+          onChange={e => setData({ ...data, password: e.target.value })}
+          labelText={"کلمه عبور"}
+          isPassword={true}
+          isSignIn={true}
+        />
+        <Button
+          onClick={handleSubmit}
+          type="submit"
+          text="ورود به حساب کاربری"
+        />
 
         <div className="flex items-baseline mt-2 text-xs gap-[5px]">
           <Link

@@ -34,9 +34,9 @@ const port = isLocal ? window.location.port : "";
 const Home = () => {
   const navigate = useNavigate();
 
-  const { data: packet } = useQuery("packetdd", () =>
-    axios.get("http://localhost:3000/courses")
-  );
+  // const { data: packet } = useQuery("packetdd", () =>
+  //   axios.get("http://localhost:3000/courses")
+  // );
 
   return (
     <MainLayout isHome={true}>
