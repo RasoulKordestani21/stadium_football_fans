@@ -10,7 +10,8 @@ const LayoutBackground = props => {
       viewBox="0 0 1094.848 654.224"
       className={clsx(
         "fixed z-[-1] bottom-[-140px] left-[-425px] rotate-[-9deg]",
-        props.isLogin && "left-[-129px] bottom-[-253px]"
+        props.isLogin && "left-[-129px] bottom-[-253px]",
+        props.className
       )}
     >
       <path

@@ -15,11 +15,17 @@ const MainLayout = ({
   isHome,
   isLogin,
   className,
-  mainPage
+  mainPage,
+  colorsPage
 }) => {
   const navigate = useNavigate();
   return (
-    <div className={clsx(className, mainPage && "main-layout")}>
+    <div
+      className={clsx(
+        className,
+        mainPage && "main-layout",
+      )}
+    >
       {/* <HeaderComp isHome={isHome}>
         <ArrowIcon
           onClick={() => {
@@ -29,8 +35,10 @@ const MainLayout = ({
           style={{ transform: "rotate(180deg)" }}
         />
       </HeaderComp> */}
-
-      {!mainPage && <LayoutBackground isLogin={isLogin} />}
+      {console.log(colorsPage)}
+      {!mainPage && (
+        <LayoutBackground isLogin={isLogin} className={clsx("card-layout")} />
+      )}
       {children}
     </div>
   );
