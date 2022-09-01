@@ -33,6 +33,7 @@ const Input = props => {
       type={"tell"}
       maxLength="1"
       onChange={e => console.log(e.target.value)}
+      {...props}
     />
   ) : (
     <div className="flex flex-col items-start mt-5" style={rtlClass}>
@@ -43,6 +44,7 @@ const Input = props => {
           placeholder={props.placeholder}
           type={props.isPassword && !showPassword ? "password" : "text"}
           onChange={props.onChange}
+          {...props}
         />
         {props.isPassword && (
           <>

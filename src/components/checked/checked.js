@@ -17,7 +17,7 @@ const CheckIcon = (props) => {
           data-name="Ellipse 42"
           fill="#40a024"
           stroke="#fcfcfc"
-          stroke-width="3"
+          strokeWidth="3"
         >
           <circle cx="15" cy="15" r="15" stroke="none" />
           <circle cx="15" cy="15" r="13.5" fill="none" />
@@ -29,9 +29,9 @@ const CheckIcon = (props) => {
           transform="translate(-1354.217 -771.805)"
           fill="none"
           stroke="#fff"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
         />
       </g>
     </svg>

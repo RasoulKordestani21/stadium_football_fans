@@ -8,6 +8,7 @@ import Logo from "../../components/logo/logo";
 import Button from "../../components/button/button";
 import Input from "../../components/Input/input";
 import Link from "../../components/link/link";
+import Error from "../../components/error/error";
 import { instance } from "../../config/api";
 
 // const FormComp = styled.form`
@@ -23,9 +24,16 @@ import { instance } from "../../config/api";
 
 const SignIn = () => {
   const handleSubmit = () => {
-    instance.get("api/signin", { params: { ...data } });
+    instance.get("api/signin", { params: { ...data } }).then(res => {
+      if (res.data.isSuccess) {
+        navigate(`/ChooseTeam`, { state: { id: +res.data.id } });
+      } else {
+        setError(res.data.message);
+      }
+    });
   };
   const [data, setData] = React.useState({});
+  const [error, setError] = React.useState("");
   const navigate = useNavigate();
   console.log(useNavigate());
   return (
@@ -43,6 +51,7 @@ const SignIn = () => {
           isPassword={true}
           isSignIn={true}
         />
+        {error && <Error message={error}></Error>}
         <Button
           onClick={handleSubmit}
           type="submit"

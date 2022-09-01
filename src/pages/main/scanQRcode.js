@@ -6,12 +6,22 @@ import scanBg from "../../assets/images/scan.png";
 import { toDataURL, setImageURL } from "qrcode";
 
 import { QrReader } from "react-qr-reader";
+import Input from "../../components/Input/input";
+import Button from "../../components/button/button";
+import { useNavigate } from "react-router-dom";
 
 const ScanQrCode = props => {
   const qrRef = useRef(null);
   const [generateTxt, setGenerateTxt] = useState("");
   const [qrLink, setQrLink] = useState();
   const [scanResultFile, setScanResultFile] = useState("");
+  let response;
+  const getQrCode = async () => {
+    response = await toDataURL(generateTxt);
+    console.log(response);
+    setQrLink(response);
+  };
+  const navigate = useNavigate();
   //   const [switchCamera, setSwitchCamera] = useState(false);
 
   //   let response;
@@ -44,8 +54,8 @@ const ScanQrCode = props => {
           style={{ width: "100%" }}
           onResult={(result, error) => {
             if (!!result) {
+              navigate("/colorsCards", { state: { imageId: result.text } });
               setScanResultFile(result?.text);
-              console.log("this is result", result);
             }
 
             if (!!error) {
@@ -54,12 +64,11 @@ const ScanQrCode = props => {
           }}
           legacyMode
         />
+
         <img src={scanBg} alt="scanbg" className={clsx("p-8 absolute")} />
         {/* <div className={clsx("w-[135px] h-[135px]  m-auto rounded-[14px] border-[2px] border-green-700 border-dashed")}>
           <hr />
-        </div> */}
-        <p>{scanResultFile}</p>
-        <p className={"mt-12"}>.لطفا بارکد روی صندلی را اسکن کنید </p>
+          </div> */}
       </div>
     </MainLayout>
   );

@@ -2,11 +2,31 @@ import ColorCardsComp from "../../components/colorCards/colorCards";
 import MainLayout from "../../components/layout/mainLayout";
 import clsx from "clsx";
 import BottomNavigation from "../../components/bottomNavigation";
+import { useLocation } from "react-router-dom";
+import { instance } from "../../config/api";
+import { useQuery } from "react-query";
+
+import { convertTo1DArray, findPixelColorId } from "../../helper/imageManager";
+import { baseColors } from "../../config/colors";
+
 // import { BottomNavigation } from "";
 
 const ColorsPage = props => {
+  const imageId = useLocation().state.imageId;
+  const { data } = useQuery("image-data", () =>
+    instance.get("/api/peronData/scanQrCode")
+  );
+
   return (
     <MainLayout colorsPage={true}>
+      {console.log(
+        data &&
+          findPixelColorId(
+            convertTo1DArray(JSON.parse(data?.data?.image)),
+            +imageId
+          ),
+        imageId
+      )}
       <div
         className={clsx(
           "flex  flex-row-reverse justify-center w-[100vw] h-[50vh]"
@@ -17,33 +37,28 @@ const ColorsPage = props => {
             "w-[80%] relative flex h-[100%] justify-center items-center"
           )}
         >
-          <ColorCardsComp
-            data={{
-              color: "bg-blue-500",
-              name: "آبی",
-              index: "z-[1]",
-              number: 10,
-              right: "right-[80px]"
-            }}
-          />
-          <ColorCardsComp
-            data={{
-              color: "bg-orange-600",
-              name: "قهوه ای",
-              index: "z-[2]",
-              number: 1,
-              right: "right-[40px]"
-            }}
-          />
-          <ColorCardsComp
-            data={{
-              color: "bg-green-500",
-              name: "سبز",
-              index: "z-[3]",
-              number: 8,
-              right: "right-0"
-            }}
-          />
+          {baseColors.map((ele, index) => {
+            console.log(index);
+            return (
+              <ColorCardsComp
+                style={{
+                  backgroundColor: ele.colorCode,
+                  zIndex: `${index}`,
+                  left: `${index * 20 - 20}px`,
+                  color: ele.id === 9 ? "#000000" : "#ffffff"
+                }}
+                data={{
+                  name: ele.name,
+                  number: index + 1
+                }}
+                // data={{
+                //   cardColor: "bg-" + ele.name
+                //   // index: "z-[" + ele.id + "]"
+                //   // zIndex: "z-[" + ele.id + "]"
+                // }}
+              />
+            );
+          })}
         </div>
       </div>
       <div>

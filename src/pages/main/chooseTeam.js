@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect } from "react";
 import MainLayout from "../../components/layout/mainLayout";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../components/logo/logo";
@@ -10,6 +11,9 @@ import Link from "../../components/link/link";
 import teams from "../../assets/front-dbs/teams";
 import "./chooseTeam.css";
 import CheckIcon from "../../components/checked/checked";
+import { instance } from "../../config/api";
+import { useLocation } from "react-router-dom";
+import { useQuery } from "react-query";
 // const FormComp = styled.form`
 //   background-image: linear-gradient(180deg, aqua, #c886c8);
 //   display: flex;
@@ -22,14 +26,51 @@ import CheckIcon from "../../components/checked/checked";
 // `;
 
 const ChooseTeam = () => {
-  const [selectedTeams, setSelectedTeams] = React.useState([]);
+  const id = useLocation().state.id;
   const navigate = useNavigate();
+  const [selectedTeams, setSelectedTeams] = React.useState([]);
+  const handleSubmit = () => {
+    instance
+      .post("/api/personData", null, {
+        params: { name, favoriteTeams: selectedTeams, id }
+      })
+      .then(res => {
+        if (res.data.isSuccess) {
+          navigate("/mainPage", { state: { id } });
+          // refetch();
+        } else {
+          console.log("fail");
+        }
+      });
+  };
+  const [name, setName] = React.useState();
+
+  const {
+    data,
+    refetch
+    // isLoading,
+    // isError
+  } = useQuery("favorite-teams", () =>
+    instance.get("/api/personData", { params: { id } })
+  );
+  useEffect(() => {
+    if (data) {
+      setSelectedTeams((data.data.favoriteTeams || []).map(ele => +ele));
+      setName(data.data.name);
+    }
+  }, [data]);
   return (
     <MainLayout backPath={"/"} isLogin={"true"}>
       <div
         className={clsx("choose-team-container flex flex-col w-full px-5  ")}
       >
-        <Input labelText="نام شما در همنما" />
+        <Input
+          onChange={e => {
+            setName(e.target.value);
+          }}
+          defaultValue={name}
+          labelText="نام شما در همنما"
+        />
         <div>
           <p className={clsx("text-[20px] text-right mt-5 mb-2 font-bold")}>
             طرفدار چه تیمی هستی ؟
@@ -38,7 +79,7 @@ const ChooseTeam = () => {
             سه تیم محبوب خودت رو انتخاب کن
           </p>
           <div class={`choose-teams grid grid-cols-3 gap-2 `}>
-            {teams.map(ele => {
+            {teams?.map(ele => {
               return (
                 <div
                   className={clsx("teams")}
@@ -69,7 +110,11 @@ const ChooseTeam = () => {
             })}
           </div>
         </div>
-        <Button text="تایید" className={clsx("mt-auto mb-4 w-2/3 mx-auto")} />
+        <Button
+          onClick={handleSubmit}
+          text="تایید"
+          className={clsx("mt-auto mb-4 w-2/3 mx-auto")}
+        />
       </div>
     </MainLayout>
   );
