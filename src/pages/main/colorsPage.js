@@ -9,6 +9,7 @@ import { useQuery } from "react-query";
 
 import { convertTo1DArray, findPixelColorId } from "../../helper/imageManager";
 import { baseColors } from "../../config/colors";
+import PixelComp from "../../components/pixel";
 
 // import { BottomNavigation } from "";
 
@@ -22,7 +23,7 @@ const ColorsPage = props => {
 
   setTimeout(() => {
     setSingleCard(false);
-  }, 8000);
+  }, 2000);
 
   useEffect(() => {
     if (data)
@@ -30,7 +31,7 @@ const ColorsPage = props => {
         +findPixelColorId(
           convertTo1DArray(JSON.parse(data?.data?.image)),
           +imageId
-        ) + 1
+        )
       );
   }, [data, imageId]);
   return (
@@ -97,15 +98,35 @@ const ColorsPage = props => {
         </div>
       </div>
       <div>
-        <h3 className={clsx("mb-5")}>کارت شما کارت شماره 3 به رنگ آبی</h3>
+        <h3 className={clsx("mb-5")}>
+          کارت شما کارت شماره {cardId} به رنگ{" "}
+          {cardId && baseColors[cardId].namePe}
+        </h3>
         <p className={clsx("mb-2")}>کاربر عزیز</p>
         <p className={clsx("w-[80%] mx-auto")}>
+          {console.log(cardId)}
           کارتی که تو باید بالا ببری کارت شماره {cardId} به رنگ{" "}
           {cardId && baseColors[cardId].namePe} است. بعد از شنیدن اعلام شروع به
           مدت 1 دقیقه کارت رو بالای سرت ببر.میخواهیم تو بازه دقایق 20 تا 30 حریف
           رو میخکوب کنیم منتظر باش
         </p>
       </div>
+      <div className="flex justify-center">
+        {data && (
+          <div>
+            {JSON.parse(data?.data?.image).map(ele => {
+              return (
+                <div className="flex">
+                  {ele.split("").map(ele1 => (
+                    <PixelComp colorId={ele1} />
+                  ))}
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
       <BottomNavigation />
     </MainLayout>
   );
