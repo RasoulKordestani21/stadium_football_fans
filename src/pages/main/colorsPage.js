@@ -19,20 +19,22 @@ const ColorsPage = props => {
   const { data } = useQuery("image-data", () =>
     instance.get("/api/peronData/scanQrCode")
   );
-  const [singleCard, setSingleCard] = React.useState(true);
+  const [singleCard, setSingleCard] = React.useState(false);
 
-  setTimeout(() => {
-    setSingleCard(false);
-  }, 2000);
+  // setTimeout(() => {
+
+  // }, 2000);
 
   useEffect(() => {
-    if (data)
+    if (data) {
       setCardId(
         +findPixelColorId(
           convertTo1DArray(JSON.parse(data?.data?.image)),
           +imageId
         )
       );
+      setSingleCard(true);
+    }
   }, [data, imageId]);
   return (
     <MainLayout colorsPage={true}>
@@ -54,7 +56,7 @@ const ColorsPage = props => {
             "w-[80%] relative flex h-[100%] justify-center items-center"
           )}
         >
-          {singleCard ? (
+          {!singleCard ? (
             baseColors.map((ele, index) => {
               return (
                 <ColorCardsComp
@@ -97,14 +99,19 @@ const ColorsPage = props => {
           کارت شما کارت شماره {cardId} به رنگ{" "}
           {cardId && baseColors[cardId].namePe}
         </h3>
-        <p className={clsx("mb-2")}>کاربر عزیز</p>
-        <p className={clsx("w-[80%] mx-auto")}>
-          {console.log(cardId)}
-          کارتی که تو باید بالا ببری کارت شماره {cardId} به رنگ{" "}
-          {cardId && baseColors[cardId].namePe} است. بعد از شنیدن اعلام شروع به
-          مدت 1 دقیقه کارت رو بالای سرت ببر.میخواهیم تو بازه دقایق 20 تا 30 حریف
-          رو میخکوب کنیم منتظر باش
-        </p>
+        {!singleCard && (
+          <>
+            <p className={clsx("mb-2")}>کاربر عزیز</p>
+
+            <p className={clsx("w-[80%] mx-auto")}>
+              {console.log(cardId)}
+              کارتی که تو باید بالا ببری کارت شماره {cardId} به رنگ{" "}
+              {cardId && baseColors[cardId].namePe} است. بعد از شنیدن اعلام شروع
+              به مدت 1 دقیقه کارت رو بالای سرت ببر.میخواهیم تو بازه دقایق 20 تا
+              30 حریف رو میخکوب کنیم منتظر باش
+            </p>
+          </>
+        )}
       </div>
       <div className="flex justify-center">
         {data && (
