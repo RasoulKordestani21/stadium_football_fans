@@ -19,7 +19,9 @@ const MainLayout = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <div className={clsx(className, isMainPage && " main-layout")}>
+    <div
+      className={clsx(className, "font-[Yekan]", isMainPage && " main-layout")}
+    >
       {console.log(isBgOnTop, isBgShifted)}
       <LayoutBackground
         withoutBg={withoutBg}
