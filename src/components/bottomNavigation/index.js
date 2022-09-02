@@ -20,8 +20,8 @@ const BottomNavigation = ({ className }) => {
   const [showMoreOptions, setShowMoreOptions] = useState(false);
 
   //functions
-  const handleRouting = path => {
-    navigate.push(path);
+  const handleRouting = (path, state) => {
+    navigate(path, state);
   };
 
   return (
@@ -31,7 +31,7 @@ const BottomNavigation = ({ className }) => {
           <div
             className={classes["bottom-nav-item"]}
             onClick={e => {
-              handleRouting("/home");
+              handleRouting("/mainPage", { state: { id: +localStorage.id } });
             }}
           >
             <div>
@@ -53,7 +53,7 @@ const BottomNavigation = ({ className }) => {
           <div
             className={classes["bottom-nav-item"]}
             onClick={e => {
-              handleRouting("/home");
+              handleRouting("/qrCOde");
             }}
           >
             <div>
@@ -75,7 +75,7 @@ const BottomNavigation = ({ className }) => {
           <div
             className={classes["bottom-nav-item"]}
             onClick={e => {
-              setShowMoreOptions(!showMoreOptions);
+              handleRouting("/ChooseTeam", { state: { id: +localStorage.id } });
             }}
           >
             <div>

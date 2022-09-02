@@ -37,7 +37,7 @@ const SignUp = () => {
   const [data, setData] = React.useState({});
   const [error, setError] = React.useState("");
   return (
-    <MainLayout backPath={"/"} isLogin={"true"}>
+    <MainLayout backPath={"/"} isBgShifted={true}>
       <Logo>ورود به هم نما</Logo>
       <form className="flex flex-col items-center m-auto">
         <Input

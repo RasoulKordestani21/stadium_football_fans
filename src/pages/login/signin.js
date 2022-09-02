@@ -26,6 +26,7 @@ const SignIn = () => {
   const handleSubmit = () => {
     instance.get("api/signin", { params: { ...data } }).then(res => {
       if (res.data.isSuccess) {
+        localStorage.setItem("id", res.data.id);
         navigate(`/ChooseTeam`, { state: { id: +res.data.id } });
       } else {
         setError(res.data.message);
@@ -37,7 +38,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   console.log(useNavigate());
   return (
-    <MainLayout backPath={"/"} isLogin={"true"}>
+    <MainLayout backPath={"/"} isBgShifted={true}>
       <Logo>ورود به هم نما</Logo>
       <form className="flex flex-col items-center m-auto">
         <Input

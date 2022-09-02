@@ -12,7 +12,7 @@ import Link from "../components/link/link";
 const Otp = () => {
   const navigate = useNavigate();
   return (
-    <MainLayout backPath={"/"} isLogin={"true"} className="px-7">
+    <MainLayout backPath={"/"} isBgOnTop={false} className="px-7">
       <Logo>ورود به هم نما</Logo>
       <p className="my-10 text-[.875rem] text-end">
         کد تایید شماره شما حد اکثر تا یک دقیقه دیگر برای شما ارسال می‌شود

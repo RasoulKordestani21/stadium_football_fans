@@ -11,9 +11,21 @@
   //   filter: blur(3px);
 }
 
+.normal-layout{
+  position:fixed;
+  bottom:0;
+  left:400px
+}
+
 .card-layout{
   position:fixed;
   transform: rotate(171deg);
   top:-260px;
+  left:-100px
+}
+
+.shifted-layout{
+  position:fixed;
+  bottom:-260px;
   left:-100px
 }

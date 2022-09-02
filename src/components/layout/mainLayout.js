@@ -11,32 +11,23 @@ import getBaseUrl from "../../config/getBase";
 
 const MainLayout = ({
   children,
-  backPath,
-  isHome,
-  isLogin,
-  className,
-  mainPage,
-  colorsPage
+  isBgOnTop,
+  isBgShifted,
+  isMainPage,
+  withoutBg,
+  className
 }) => {
   const navigate = useNavigate();
   return (
-    <div className={clsx(className, mainPage && "main-layout")}>
-      {/* <HeaderComp isHome={isHome}>
-        <ArrowIcon
-          onClick={() => {
-            navigate(getBaseUrl()+ backPath);
-          }}
-          color={"#424242"}
-          style={{ transform: "rotate(180deg)" }}
-        />
-      </HeaderComp> */}
-      {console.log(colorsPage)}
-
+    <div className={clsx(className, isMainPage && " main-layout")}>
+      {console.log(isBgOnTop, isBgShifted)}
       <LayoutBackground
-        isLogin={isLogin}
-        className={clsx(!mainPage && !isLogin && "card-layout")}
+        withoutBg={withoutBg}
+        className={clsx(
+          isBgOnTop && "card-layout",
+          isBgShifted && "shifted-layout"
+        )}
       />
-
       {children}
     </div>
   );

@@ -9,6 +9,7 @@ import { QrReader } from "react-qr-reader";
 import Input from "../../components/Input/input";
 import Button from "../../components/button/button";
 import { useNavigate } from "react-router-dom";
+import BottomNavigation from "../../components/bottomNavigation";
 
 const ScanQrCode = props => {
   const qrRef = useRef(null);
@@ -70,6 +71,7 @@ const ScanQrCode = props => {
           <hr />
           </div> */}
       </div>
+      <BottomNavigation />
     </MainLayout>
   );
 };

@@ -36,7 +36,12 @@ const MainPage = () => {
   // );
 
   return (
-    <MainLayout mainPage={true} backPath={"/"} isLogin={"true"}>
+    <MainLayout
+      backPath={"/"}
+      isBgOnTop={false}
+      isMainPage={true}
+      withoutBg={true}
+    >
       <Header name={data?.data?.name} className={clsx("")} />
       <div
         className={clsx(

@@ -1,7 +1,6 @@
 import clsx from "clsx";
 
 const LayoutBackground = props => {
-  console.log(props.isLogin);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +9,8 @@ const LayoutBackground = props => {
       viewBox="0 0 1094.848 654.224"
       className={clsx(
         "fixed z-[-1] bottom-[-140px] left-[-425px] rotate-[-9deg]",
-        props.isLogin && "left-[-129px] bottom-[-253px]",
+        props.isBgOnTop && "left-[-129px] bottom-[-253px]",
+        props.withoutBg &&"hidden",
         props.className
       )}
     >

@@ -60,7 +60,7 @@ const ChooseTeam = () => {
     }
   }, [data]);
   return (
-    <MainLayout backPath={"/"} isLogin={"true"}>
+    <MainLayout backPath={"/"} withoutBg={true}>
       <div
         className={clsx("choose-team-container flex flex-col w-full px-5  ")}
       >

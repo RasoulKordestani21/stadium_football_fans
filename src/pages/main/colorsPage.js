@@ -68,11 +68,6 @@ const ColorsPage = props => {
                     name: ele.namePe,
                     number: index + 1
                   }}
-                  // data={{
-                  //   cardColor: "bg-" + ele.name
-                  //   // index: "z-[" + ele.id + "]"
-                  //   // zIndex: "z-[" + ele.id + "]"
-                  // }}
                 />
               );
             })
