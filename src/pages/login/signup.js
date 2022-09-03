@@ -23,6 +23,7 @@ import Error from "../../components/error/error";
 //   margin:auto
 // `;
 
+
 const SignUp = () => {
   const navigate = useNavigate();
   const handleSubmit = e => {
