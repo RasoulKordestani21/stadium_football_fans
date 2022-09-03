@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import teams from "../../assets/front-dbs/teams";
 
 const MatchesSoon = props => {
   return (
@@ -12,18 +13,19 @@ const MatchesSoon = props => {
         <div className={clsx("flex")}>
           <img
             className={clsx("rounded-full w-1/2 h-1/2 mx-auto mb-3")}
-            src="https://w0.peakpx.com/wallpaper/853/281/HD-wallpaper-esteghlal-fc-silk-texture-logo-emblem-blue-silk-flag-iranian-football-club-tehran-iran-football-persian-gulf-pro-league-thumbnail.jpg"
+            src={teams.find(ele => ele.id === props.firstTeam.id).logo}
             alt="first-team"
           />
-          <p>استقلال خوزستان</p>
+          <p>{teams.find(ele => ele.id === props.firstTeam.id).name}</p>
         </div>
         <div className={clsx("flex")}>
+          {console.log(teams.find(ele => ele.id === props.secondTeam.id).logo)}
           <img
             className={clsx("rounded-full w-1/2 h-1/2 mx-auto mb-3")}
-            src="https://w0.peakpx.com/wallpaper/853/281/HD-wallpaper-esteghlal-fc-silk-texture-logo-emblem-blue-silk-flag-iranian-football-club-tehran-iran-football-persian-gulf-pro-league-thumbnail.jpg"
-            alt="first-team"
+            src={teams.find(ele => ele.id === props.secondTeam.id).logo}
+            alt="second-team"
           />
-          <p>استقلال خوزستان</p>
+          <p>{teams.find(ele => ele.id === props.secondTeam.id).name}</p>
         </div>
       </div>
       <div>

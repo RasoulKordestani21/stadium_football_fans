@@ -27,13 +27,9 @@ const Header = ({ className, ...props }) => {
             "top-0 !static flex items-center"
           )}
         >
-          <p
-            className={
-              "pt-2 pb-3 px-3  rounded-full bg-slate-500 text-white mr-5"
-            }
-          >
-            {props.name && props.name[0]}
-          </p>
+          <div className={"flex h-6 w-6 items-center justify-center rounded-full  bg-slate-500 text-white mr-5"}>
+            <p className="">{props.name && props.name[0]}</p>
+          </div>
           <p className={clsx("pr-2")}>{props?.name}</p>
           <div className={clsx("bg-green mr-auto ml-4")}>alarm</div>
         </div>

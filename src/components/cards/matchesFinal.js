@@ -1,28 +1,31 @@
 import clsx from "clsx";
+import teams from "../../assets/front-dbs/teams";
 
 const MatchesFinal = props => {
   return (
-    <div className={clsx("flex  min-w-[250px] m-4 rounded-[14px] p-4 shadow-lg")}>
+    <div
+      className={clsx("flex  min-w-[250px] m-4 rounded-[14px] p-4 shadow-lg")}
+    >
       <div className={clsx("flex items-center")}>
         <div className={clsx(" ")}>
           <img
             className={clsx("rounded-full w-1/2 h-1/2 mx-auto ")}
-            src="https://w0.peakpx.com/wallpaper/853/281/HD-wallpaper-esteghlal-fc-silk-texture-logo-emblem-blue-silk-flag-iranian-football-club-tehran-iran-football-persian-gulf-pro-league-thumbnail.jpg"
+            src={teams.find(ele => ele.id === props.firstTeam.id).logo}
             alt="first-team"
           />
-          <p>فولاد خوزستان</p>
+          <p> {teams.find(ele => ele.id === props.firstTeam.id).name}</p>
         </div>
-        <h4>1</h4>
+        <h4>{props.firstTeam.goals}</h4>
       </div>
       <div className={clsx("flex items-center")}>
-        <h4>1</h4>
+        <h4>{props.secondTeam.goals}</h4>
         <div className={clsx(" ")}>
           <img
             className={clsx("rounded-full w-1/2 h-1/2 mx-auto ")}
-            src="https://w0.peakpx.com/wallpaper/853/281/HD-wallpaper-esteghlal-fc-silk-texture-logo-emblem-blue-silk-flag-iranian-football-club-tehran-iran-football-persian-gulf-pro-league-thumbnail.jpg"
+            src={teams.find(ele => ele.id === props.secondTeam.id).logo}
             alt="second-team"
           />
-          <p>فولاد خوزستان</p>
+          <p>{teams.find(ele => ele.id === props.secondTeam.id).name}</p>
         </div>
       </div>
     </div>

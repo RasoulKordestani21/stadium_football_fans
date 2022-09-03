@@ -61,17 +61,26 @@ const MainPage = () => {
       <div>
         <h3>بازی های هفته سوم</h3>
         <div className={clsx("flex overflow-x-scroll")}>
-          <MatchesFinal />
-          <MatchesFinal />
-          <MatchesFinal />
+          <MatchesFinal
+            firstTeam={{ goals: 3, id: 3 }}
+            secondTeam={{ goals: 2, id: 1 }}
+          />
+          <MatchesFinal
+            firstTeam={{ goals: 3, id: 0 }}
+            secondTeam={{ goals: 2, id: 8 }}
+          />
+          <MatchesFinal
+            firstTeam={{ goals: 3, id: 5 }}
+            secondTeam={{ goals: 2, id: 12 }}
+          />
         </div>
       </div>
       <div>
         <h3>بازی های حساس پیشرو</h3>
         <div className={clsx("flex overflow-x-scroll")}>
-          <MatchesSoon />
-          <MatchesSoon />
-          <MatchesSoon />
+          <MatchesSoon firstTeam={{ id: 10 }} secondTeam={{ id: 15 }} />
+          <MatchesSoon firstTeam={{ id: 13 }} secondTeam={{ id: 1 }} />
+          <MatchesSoon firstTeam={{ id: 4 }} secondTeam={{ id: 0 }} />
         </div>
       </div>
 
