@@ -25,7 +25,8 @@ import Error from "../../components/error/error";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
     instance.post("api/signup", null, { params: { ...data } }).then(res => {
       if (res.data.isSuccess) {
         navigate("/signin");
