@@ -2,32 +2,82 @@ const teams = [
   {
     name: "استقلال تهران",
     id: 0,
-    logo: "https://w0.peakpx.com/wallpaper/853/281/HD-wallpaper-esteghlal-fc-silk-texture-logo-emblem-blue-silk-flag-iranian-football-club-tehran-iran-football-persian-gulf-pro-league-thumbnail.jpg"
+    logo: "https://static.farakav.com/files/pictures/01150467.png?w=60"
   },
   {
     name: "پرسپولیس تهران",
     id: 1,
-    logo: "https://w0.peakpx.com/wallpaper/924/128/HD-wallpaper-persepolis-fc-silk-texture-logo-emblem-red-black-silk-flag-iranian-football-club-tehran-iran-football-persian-gulf-pro-league-thumbnail.jpg"
+    logo: "https://static.farakav.com/files/pictures/01199233.png?w=60"
+  },
+  {
+    name: "پیکان تهران",
+    id: 2,
+    logo: "https://static.farakav.com/files/pictures/01150455.png?w=60"
   },
   {
     name: "سپاهان اصفهان",
-    id: 2,
-    logo: "https://w0.peakpx.com/wallpaper/1014/160/HD-wallpaper-sepahan-sc-silk-texture-logo-emblem-yellow-black-silk-flag-iranian-football-club-isfahan-iran-football-persian-gulf-pro-league-thumbnail.jpg"
+    id: 3,
+    logo: "https://static.farakav.com/files/pictures/01150477.png?w=60"
   },
   {
     name: "ذوب‌آهن اصفهان",
-    id: 3,
-    logo: "https://w0.peakpx.com/wallpaper/311/707/HD-wallpaper-zob-ahan-fc-silk-texture-logo-emblem-green-white-silk-flag-iranian-football-club-isfahan-iran-football-persian-gulf-pro-league-thumbnail.jpg"
+    id: 4,
+    logo: "https://static.farakav.com/files/pictures/01150479.png?w=60"
   },
   {
     name: "فولاد خوزستان",
-    id: 4,
-    logo: "https://w0.peakpx.com/wallpaper/538/900/HD-wallpaper-foolad-fc-silk-texture-logo-emblem-red-orange-silk-flag-iranian-football-club-ahwaz-iran-football-persian-gulf-pro-league-thumbnail.jpg"
+    id: 5,
+    logo: "https://static.farakav.com/files/pictures/01150470.png?w=60"
   },
   {
     name: "تراکتور سازی تبریز",
-    id: 5,
-    logo: "https://w0.peakpx.com/wallpaper/430/880/HD-wallpaper-tractor-sazi-fc-silk-texture-logo-emblem-red-white-silk-flag-iranian-football-club-tabriz-iran-football-persian-gulf-pro-league-thumbnail.jpg"
+    id: 6,
+    logo: "https://match-cdn.varzesh3.com/football-team/2022/02/16/C/l2wuyhxr.png?w=60"
+  },
+  {
+    name: "گل‌گهر سیرجان",
+    id: 7,
+    logo: "https://static.farakav.com/files/pictures/01437525.png?w=60"
+  },
+  {
+    name: "نفت مسجد سلیمان",
+    id: 8,
+    logo: "https://static.farakav.com/files/pictures/01150548.png?w=60"
+  },
+  {
+    name: "هوادار",
+    id: 9,
+    logo: "https://static.farakav.com/files/pictures/01546055.png?w=60"
+  },
+  {
+    name: "مس کرمان",
+    id: 10,
+    logo: "https://static.farakav.com/files/pictures/01150539.png?w=60"
+  },
+  {
+    name: "مس رفسنجان",
+    id: 11,
+    logo: "https://match-cdn.varzesh3.com/football-team/2022/02/13/B/errniwqh.png?w=60"
+  },
+  {
+    name: "آلمینیوم اراک",
+    id: 12,
+    logo: "https://static.farakav.com/files/pictures/01524811.png?w=60"
+  },
+  {
+    name: "صنعت نفت آبادان",
+    id: 13,
+    logo: "https://static.farakav.com/files/pictures/01150464.png?w=60"
+  },
+  {
+    name: "نساجی مازندران",
+    id: 14,
+    logo: "https://static.farakav.com/files/pictures/01323791.png?w=60"
+  },
+  {
+    name: "ملوان",
+    id: 15,
+    logo: "https://match-cdn.varzesh3.com/football-team/2022/02/10/B/uz3ygqmp.png?w=60"
   }
 ];
 
