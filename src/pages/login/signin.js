@@ -11,6 +11,8 @@ import Link from "../../components/link/link";
 import Error from "../../components/error/error";
 import { instance } from "../../config/api";
 
+import { useForm } from "react-hook-form";
+
 // const FormComp = styled.form`
 //   background-image: linear-gradient(180deg, aqua, #c886c8);
 //   display: flex;
@@ -23,7 +25,13 @@ import { instance } from "../../config/api";
 // `;
 
 const SignIn = () => {
-  const handleSubmit = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors }
+  } = useForm();
+  const onSubmit = () => {
     instance.get("api/signin", { params: { ...data } }).then(res => {
       if (res.data.isSuccess) {
         localStorage.setItem("id", res.data.id);
@@ -36,21 +44,32 @@ const SignIn = () => {
   const [data, setData] = React.useState({});
   const [error, setError] = React.useState("");
   const navigate = useNavigate();
-  console.log(useNavigate());
   return (
     <MainLayout backPath={"/"} isBgShifted={true}>
       <Logo>ورود به هم نما</Logo>
-      <form className="flex flex-col items-center m-auto">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col items-center m-auto"
+      >
         <Input
           onChange={e => setData({ ...data, username: e.target.value })}
           placeholder="شماره موبایل"
-          labelText={"نام و نام خانوادگی"}
+          labelText={"شماره موبایل"}
+          // {...register("phoneNumber",{required})}
+          required
+          minLength={11}
+          maxLength={11}
+          errorMessage={"شماره همراه باید ۱۱ رقم باشد."}
         />
+
         <Input
           onChange={e => setData({ ...data, password: e.target.value })}
           labelText={"کلمه عبور"}
           isPassword={true}
           isSignIn={true}
+          required
+          minLength={6}
+          errorMessage={"کلمه عبور باید بیش از ۶ کاراکتر باشد."}
         />
         {error && <Error message={error}></Error>}
         <Button

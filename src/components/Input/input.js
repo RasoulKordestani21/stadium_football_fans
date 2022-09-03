@@ -40,10 +40,14 @@ const Input = props => {
       <label className="mb-2">{props.labelText}</label>
       <div className="relative">
         <input
-          className="rounded-[8px] border-[1px] border-slate-300 text-base p-3 min-w-[250px] relative hover:border-slate-500 focus:outline-slate-500"
+          className="rounded-[8px] border-[1px] border-slate-300 
+          text-base p-3 min-w-[250px] relative
+           hover:border-slate-500 focus:outline-slate-500 invalid:focus:outline-red-500"
           placeholder={props.placeholder}
           type={props.isPassword && !showPassword ? "password" : "text"}
           onChange={props.onChange}
+          onInvalid={e => e.target.setCustomValidity(props.errorMessage)}
+          onInput={e => e.target.setCustomValidity("")}
           {...props}
         />
         {props.isPassword && (

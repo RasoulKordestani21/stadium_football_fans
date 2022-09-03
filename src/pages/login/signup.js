@@ -38,20 +38,30 @@ const SignUp = () => {
   const [error, setError] = React.useState("");
   return (
     <MainLayout backPath={"/"} isBgShifted={true}>
-      <Logo>ورود به هم نما</Logo>
-      <form className="flex flex-col items-center m-auto">
+      <Logo> ثبت نام در هم نما</Logo>
+      <form
+        className="flex flex-col items-center m-auto"
+        onSubmit={handleSubmit}
+      >
         <Input
           onChange={e => setData({ ...data, username: e.target.value })}
           placeholder="شماره موبایل"
-          labelText={"نام و نام خانوادگی"}
+          labelText={"شماره همراه"}
+          required
+          minLength={11}
+          maxLength={11}
+          errorMessage={"شماره همراه باید ۱۱ رقم باشد."}
         />
         <Input
           onChange={e => setData({ ...data, password: e.target.value })}
           labelText={"کلمه عبور"}
           isPassword={true}
+          required
+          minLength={6}
+          errorMessage={"کلمه عبور باید بیش از ۶ کاراکتر باشد."}
         />
         {error && <Error message={error}></Error>}
-        <Button text="ثبت‌نام" onClick={handleSubmit} />
+        <Button type="submit" text="ثبت‌نام" />
         <div className="flex items-baseline mt-2 text-xs gap-[5px]">
           <Link
             onClick={() => {
