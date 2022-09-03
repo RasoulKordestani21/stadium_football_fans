@@ -116,11 +116,20 @@ const ColorsPage = props => {
       <div className="flex justify-center">
         {data && (
           <div>
-            {JSON.parse(data?.data?.image).map(ele => {
+            {JSON.parse(data?.data?.image).map((ele, index) => {
               return (
                 <div className="flex">
-                  {ele.split("").map(ele1 => (
-                    <PixelComp colorId={ele1} />
+                  {/* {console.log(index, JSON.parse(data?.data?.image).length)} */}
+                  {ele.split("").map((ele1, index1) => (
+                    <PixelComp
+                      isItMe={
+                        index * JSON.parse(data?.data?.image)[0].length +
+                          index1 +
+                          1 ===
+                        +imageId
+                      }
+                      colorId={ele1}
+                    />
                   ))}
                 </div>
               );
